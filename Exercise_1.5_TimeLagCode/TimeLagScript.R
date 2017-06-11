@@ -1,3 +1,5 @@
+setwd("~/GitHub/Walter-Datasets/Exercise_1.5_TimeLagCode")
+
 library(chron)
 library(rgdal)
 library(RAtmosphere)

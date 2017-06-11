@@ -1,3 +1,4 @@
+setwd("~/GitHub/Walter-Datasets/Exercise_1.6_ManipulatePolygonLayer")
 library(rgdal)
 library(maptools)
 library(foreign)
@@ -67,14 +68,14 @@ locs@proj4string <- soils@proj4string
 soils.locs<- over(locs, soils)
 
 #Extracts and tallies Clay soil types:
-obs.tbl <- table(soils.idx$Clay[soils.idx$Clay])
+obs.tbl <- table(soils.idx$Clay)
 obs.tbl
 
 #Converts the counts to proportions:
 obs <- obs.tbl/sum(obs.tbl)
 obs
 
-obs.tbl2 <- table(soils.locs$Clay[soils.locs$Clay])
+obs.tbl2 <- table(soils.locs$Clay)
 obs.tbl2
 
 #Converts the counts to proportions:
