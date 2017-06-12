@@ -1,3 +1,4 @@
+setwd("~/GitHub/Walter-Datasets/Exercise_4.2_Hlscv")
 library(adehabitatHR)
 library(sp)
 
@@ -12,6 +13,9 @@ plot(pantherspdf, col=pantherspdf$CatID)
 ## Example of estimation using LSCV
 udbis2 <- kernelUD(pantherspdf[,2], h = "href", hlim = c(10,50),extent=1)
 image(udbis2)
+
+udbis3 <- kernelUD(pantherspdf[,2], h = "LSCV", hlim = c(10,50),extent=1)
+image(udbis3)
 
 #Now change h to href for comparison to LSCV later
 
@@ -44,5 +48,8 @@ cuicui3
 #Now rerun with jitter factor = 500 instead of 100 and see what happens?
 
 iso <- cbind(cuicui2,cuicui3)
-colnames(iso) <- c("FP121_lscv","FP143_lscv","FP121_Jitter","FP143_Jitter")
+colnames(iso) <- c("FP121_href","FP143_href","FP121_JitterLSCV","FP143_JitterLSCV")
+iso
+iso$diff121 <- iso[,1] - iso[,3]
+iso$diff143 <- iso[,2] - iso[,4]
 iso
